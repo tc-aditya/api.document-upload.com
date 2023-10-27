@@ -22,6 +22,7 @@ app.use((req, res, next) => {
     "https://www.frontend.rossdev.xyz/",
     "https://www.admin.rossdev.xyz/",
     "https://www.frontend.mightyegor.com/",
+    "https://www.rossdev.xyz/",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
