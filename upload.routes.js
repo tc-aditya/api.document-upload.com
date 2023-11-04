@@ -42,4 +42,13 @@ module.exports = function (app) {
   });
 
   app.post("/api/upload-document", upload.single("document"), uploadDocument);
+
+  app.get("/api/download/:filename", async (req, res) => {
+    const filename = req.params.filename;
+    const file = await fs.promises.readFile(`./public/${filename}`);
+
+    res.set("Content-Type", "application/octet-stream");
+    res.setHeader("Content-Disposition", `attachment; filename=${filename}`);
+    res.send(file);
+  });
 };
